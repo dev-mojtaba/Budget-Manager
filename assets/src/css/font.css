@@ -1,0 +1,27 @@
+/*
+*************
+* Help Text *
+*************
+
+**********************
+* B Nazanin font * > from ln 24 of col 1 to ln 27 of col 2
+**********************
+
+***************************************
+* writed this css file by Dev_Mojtaba *
+***************************************
+
+*********************
+* PLEASE DON'T EDIT * > if you want to know what is this please read this page -> https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
+*********************
+
+*** future features ***
+* maybe add other fonts
+
+*/
+
+/* thin */
+@font-face {
+    font-family: "irsans";
+    src: url(../fonts/irsans.ttf);
+}
