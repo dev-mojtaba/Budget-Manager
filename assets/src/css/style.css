@@ -123,6 +123,6 @@ body {
     display: none;
 }
 
-.list--data.inputs input {
+.list--data.checkboxes input {
     display: unset;
 }
