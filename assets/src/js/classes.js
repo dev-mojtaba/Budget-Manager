@@ -1,5 +1,5 @@
 import { budget, inventoryBudget } from "./getUserBudget.js";
-import { dataList } from "./deletesFunctions.js";
+import { dataList, checkedInput } from "./deletesFunctions.js";
 
 export class Budget {
     constructor(budget) {
@@ -75,5 +75,6 @@ export class HTML {
                 alert("موجودی شما کافی نیست!");
             }
         }
+        checkedInput();
     }
 }
