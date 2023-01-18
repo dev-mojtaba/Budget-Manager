@@ -24,7 +24,7 @@
                         </div>
                         <div>
                             <label for="price" class="text-gray-100 select-none">قیمت:</label>
-                            <input type="number" placeholder="قیمت را وارد کنید" name="price" id="price" class="form__both--input">
+                            <input type="number" min="0" placeholder="قیمت را وارد کنید" name="price" id="price" class="form__both--input">
                         </div>
                     </div>
                     <button class="js-submit submit">تایید</button>
@@ -68,47 +68,14 @@
                             هزینه ها
                         </h3>
                     </div>
-                    <div class="js-list--data list--data inputs w-full text-[#d8dfdf] text-[16px]">
-                        <div class="js-data data selected">
-                            <p>
-                                کافی شاپ
-                            </p>
-                            <p>
-                                16000
-                                <input type="checkbox">
-                            </p>
-                        </div>
-                        <div class="js-data data selected">
-                            <p>
-                                کافی شاپ
-                            </p>
-                            <p>
-                                16000
-                                <input type="checkbox">
-                            </p>
-                        </div>
-                        <div class="js-data data">
-                            <p>
-                                کافی شاپ
-                            </p>
-                            <p>
-                                16000
-                                <input type="checkbox">
-                            </p>
-                        </div>
-                        <div class="js-data data">
-                            <p>
-                                کافی شاپ
-                            </p>
-                            <p>
-                                16000
-                                <input type="checkbox">
-                            </p>
-                        </div>
-                    </div>
+                    <div class="js-list--data list--data w-full h-[205px] overflow-y-auto text-[#d8dfdf] text-[16px]"></div>
                 </div>
             </div>
         </div>
     </section>
+    <script type="module" src="./assets/src/js/classes.js"></script>
+    <script type="module" src="./assets/src/js/getUserBudget.js"></script>
+    <script type="module" src="./assets/src/js/deletesFunctions.js"></script>
+    <script type="module" src="./assets/src/js/getInputValues.js"></script>
 </body>
 </html>
