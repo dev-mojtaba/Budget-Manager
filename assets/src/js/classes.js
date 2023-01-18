@@ -14,8 +14,7 @@ export class Budget {
         sum += parseInt( amount );
 
         // append sum to html
-        let html = new HTML();
-        html.insertBudget(sum);
+        new HTML().insertBudget(sum);
     }
 }
 
