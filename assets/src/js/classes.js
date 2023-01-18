@@ -5,6 +5,18 @@ export class Budget {
     constructor(budget) {
         this.budget = budget;
     }
+
+    sum(amount) {
+        // sum variable
+        let sum = parseInt(this.budget);
+
+        // total
+        sum += parseInt( amount );
+
+        // append sum to html
+        let html = new HTML();
+        html.insertBudget(sum);
+    }
 }
 
 export class HTML {
