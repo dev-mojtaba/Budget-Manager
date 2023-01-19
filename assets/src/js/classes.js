@@ -1,9 +1,10 @@
-import { budget, inventoryBudget } from "./getUserBudget.js";
+import { userBudget, inventoryBudget } from "./getUserBudget.js";
 import { dataList, checkedInput } from "./deletesFunctions.js";
 
 export class Budget {
     constructor(budget) {
         this.budget = budget;
+        this.percentage(parseInt(userBudget), parseInt(this.budget));
     }
 
     sum(amount) {
@@ -26,6 +27,27 @@ export class Budget {
 
         // append minus to html
         new HTML().insertBudget(minus);
+    }
+
+    percentage (currentBudget, changeableBudget) {
+        let total = currentBudget / 4;
+        // budget text change color conditions/system
+        if (changeableBudget >= (total * 3) && changeableBudget <= currentBudget) {
+            inventoryBudget.parentElement.parentElement.classList.remove("yellow", "orange", "red");
+            inventoryBudget.parentElement.parentElement.classList.add("green");
+        }
+        if (changeableBudget >= (total * 2) && changeableBudget <= (total * 3)) {
+            inventoryBudget.parentElement.parentElement.classList.remove("green", "orange", "red");
+            inventoryBudget.parentElement.parentElement.classList.add("yellow");
+        }
+        if (changeableBudget >= total && changeableBudget <= (total * 2)) {
+            inventoryBudget.parentElement.parentElement.classList.remove("green", "yellow", "red");
+            inventoryBudget.parentElement.parentElement.classList.add("orange");
+        }
+        if (changeableBudget >= 1 && changeableBudget <= total) {
+            inventoryBudget.parentElement.parentElement.classList.remove("green", "yellow", "orange");
+            inventoryBudget.parentElement.parentElement.classList.add("red");
+        }
     }
 }
 

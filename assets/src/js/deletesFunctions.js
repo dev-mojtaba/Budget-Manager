@@ -1,5 +1,5 @@
 import { Budget } from "./classes.js";
-import { userInventory, inventoryBudget, budget } from "./getUserBudget.js";
+import { inventoryBudget, userBudget } from "./getUserBudget.js";
 /**variables */
 export const dataList = document.querySelector(".js-list--data"),
   del = document.querySelector(".js-deleter"),
@@ -13,6 +13,7 @@ del.addEventListener("click", (event) => {
       selecteds.forEach((selected) => {
         const status = selected.querySelector("input[type=checkbox]");
         if( status.checked ) {
+          new Budget(inventoryBudget.textContent).percentage(parseInt(userBudget), parseInt(inventoryBudget.textContent))
           new Budget(inventoryBudget.textContent).sum(status.parentElement.textContent);
           status.parentElement.parentElement.remove();
         }
