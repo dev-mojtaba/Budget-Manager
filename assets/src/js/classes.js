@@ -43,8 +43,7 @@ export class HTML {
         cb.setAttribute("type", "checkbox");
         
         // add some required classes to div
-        div.classList.add("js-data");
-        div.classList.add("data");
+        div.classList.add("js-data", "data");
         
         // check if inputs null or undefined it's show an error otherwise it's work successfully
         if (typeText === null || priceText === null && typeText === undefined || priceText === undefined && typeText === '' || priceText === '') {
