@@ -50,29 +50,33 @@ export class HTML {
         if (typeText === null || priceText === null && typeText === undefined || priceText === undefined && typeText === '' || priceText === '') {
             alert("لطفا تمام مقادیر خواسته شده را پر کرده سپس دوباره امتحان کنید!");
         } else {
-            if (parseInt(inventoryBudget.textContent) >= parseInt(priceText)) {
-            
-            // append value of parameters to textContent and add required class to elements
-            typePart.textContent = typeText;
-            // typePart.classList.add("type-part");
-            pricePart.textContent = priceText;
-            // pricePart.classList.add("price-part");
-            
-            // we need to append childs to the div
-            div.appendChild(typePart);
-            div.appendChild(pricePart);
-            
-            // append checkbox to the price part
-            pricePart.appendChild(cb);
+            if (priceText > 0) {
+                if (parseInt(inventoryBudget.textContent) >= parseInt(priceText)) {
+                
+                // append value of parameters to textContent and add required class to elements
+                typePart.textContent = typeText;
+                // typePart.classList.add("type-part");
+                pricePart.textContent = priceText;
+                // pricePart.classList.add("price-part");
+                
+                // we need to append childs to the div
+                div.appendChild(typePart);
+                div.appendChild(pricePart);
+                
+                // append checkbox to the price part
+                pricePart.appendChild(cb);
+        
+                // at last append div to the data list and show
+                dataList.appendChild(div);
     
-            // at last append div to the data list and show
-            dataList.appendChild(div);
-
-            //substraction from money
-            new Budget(inventoryBudget.textContent).minus(priceText);
-
+                //substraction from money
+                new Budget(inventoryBudget.textContent).minus(priceText);
+    
+                } else {
+                    alert("موجودی شما کافی نیست!");
+                }
             } else {
-                alert("موجودی شما کافی نیست!");
+                alert("عدد وارد شده نباید کمتر از 1 باشد");
             }
         }
         checkedInput();
