@@ -68,7 +68,7 @@ export class HTML {
         div.classList.add("js-data", "data");
         
         // check if inputs null or undefined it's show an error otherwise it's work successfully
-        if (typeText === null || priceText === null && typeText === undefined || priceText === undefined && typeText === '' || priceText === '') {
+        if (typeText === null || priceText === null || typeText === undefined || priceText === undefined || typeText === '' || priceText === '') {
             alert("لطفا تمام مقادیر خواسته شده را پر کرده سپس دوباره امتحان کنید!");
         } else {
             if (priceText > 0) {
