@@ -54,6 +54,7 @@ export class Budget {
 export class HTML {
     insertBudget(amount) {
         inventoryBudget.innerHTML = amount;
+        new Budget(parseInt(inventoryBudget.textContent)).percentage(parseInt(userBudget), parseInt(inventoryBudget.textContent));
     }
 
     insertToList(typeText, priceText) {
