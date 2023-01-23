@@ -1,3 +1,26 @@
+/* animations */
+@keyframes smalltobig {
+    0% {
+        width: 35px;
+        height: 35px;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+@keyframes bigtosmall {
+    0% {
+        width: 90%;
+    }
+
+    100% {
+        width: 35px;
+        height: 35px;
+    }
+}
+
 /* font set */
 * {
     font-family: "irsans";
@@ -20,6 +43,53 @@ body {
 .container {
     width: 88vw;
     height: auto;
+}
+
+/* notif */
+.notif__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.notif__box--msg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 10px;
+    max-height: 35px !important;
+    width: 90%;
+    gap: 10px;
+    padding: 3px 12px;
+    margin: 6px;
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 30px;
+    overflow: hidden;
+    word-wrap: break-word;
+    animation: smalltobig both 1.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.notif__box--msg.active {
+    animation: bigtosmall both 1.5s cubic-bezier(0.81, -0.25, 0.87, 0.07);
+}
+
+.notif__box--msg p {
+    width: fit-content;
+}
+
+.notif__box--msg svg {
+    width: fit-content;
+    cursor: pointer;
 }
 
 /* original */
