@@ -70,7 +70,7 @@ export class HTML {
         
         // check if inputs null or undefined it's show an error otherwise it's work successfully
         if (typeText === null || priceText === null || typeText === undefined || priceText === undefined || typeText === '' || priceText === '') {
-            alert("لطفا تمام مقادیر خواسته شده را پر کرده سپس دوباره امتحان کنید!");
+            new HTML().printMessage("فیلد ها نمیتوانند خالی باشند")
         } else {
             if (priceText > 0) {
                 if (parseInt(inventoryBudget.textContent) >= parseInt(priceText)) {
@@ -95,12 +95,44 @@ export class HTML {
                 new Budget(inventoryBudget.textContent).minus(priceText);
     
                 } else {
-                    alert("موجودی شما کافی نیست!");
+                    new HTML().printMessage("موجودی شما کافی نیست")
                 }
             } else {
-                alert("عدد وارد شده نباید کمتر از 1 باشد");
+                new HTML().printMessage("قیمت نمیتواند کمتر از یک باشد");
             }
         }
         checkedInput();
+    }
+
+    printMessage(msg) {
+        // variables needed
+        let notifBox = document.querySelector(".notif__box"), div = document.createElement("div"), p = document.createElement("p"), svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"), svgPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+
+        // check if box have 3 element or not
+        if (notifBox.children.length < 3) {
+            // add some required class to the elements
+            div.classList.add("notif__box--msg");
+    
+            // enter text from msg parameter to the p element
+            p.textContent = `${msg}`;
+    
+            // set some required attributes to the svg and path
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("width", "24");
+            svg.setAttribute("height", "24");
+            svgPath.setAttribute("d", "M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-9.414l2.828-2.829 1.415 1.415L13.414 12l2.829 2.828-1.415 1.415L12 13.414l-2.828 2.829-1.415-1.415L10.586 12 7.757 9.172l1.415-1.415L12 10.586z");
+    
+            // append path to the svg
+            svg.appendChild(svgPath);
+            
+            // append created element to the box
+            notifBox.appendChild(div);
+    
+            // append created elements to the div with timer because of animation
+            div.appendChild(p);
+            div.appendChild(svg);
+        } else {
+            notifBox.firstElementChild.remove();
+        }
     }
 }
