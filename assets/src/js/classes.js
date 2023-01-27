@@ -1,5 +1,5 @@
 import { userBudget, inventoryBudget } from "./getUserBudget.js";
-import { dataList, checkedInput } from "./deletesFunctions.js";
+import { dataList, checkNotificationBox, checkedInput } from "./deletesFunctions.js";
 
 export class Budget {
     constructor(budget) {
@@ -131,8 +131,10 @@ export class HTML {
             // append created elements to the div with timer because of animation
             div.appendChild(p);
             div.appendChild(svg);
+            checkNotificationBox();
         } else {
             notifBox.firstElementChild.remove();
+            checkNotificationBox();
         }
     }
 }

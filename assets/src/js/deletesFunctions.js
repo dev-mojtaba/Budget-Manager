@@ -3,7 +3,8 @@ import { inventoryBudget, userBudget } from "./getUserBudget.js";
 /**variables */
 export const dataList = document.querySelector(".js-list--data"),
   del = document.querySelector(".js-deleter"),
-  stack = document.querySelector(".js-stacker");
+  stack = document.querySelector(".js-stacker"),
+  notifBox = document.querySelector(".notif__box"), notifChilds = notifBox.childNodes;
 
 /**events */
 del.addEventListener("click", (event) => {
@@ -38,6 +39,21 @@ stack.addEventListener("click", (event) => {
   }
 });
 
+/**notif section */
+export function checkNotificationBox() {
+  if (notifBox.hasChildNodes()) {
+    notifChilds.forEach((notifChild => {
+      const svg = notifChild.querySelector("svg");
+      svg.addEventListener("click", event => {
+        svg.parentElement.classList.add("active");
+        setTimeout(() => {
+          svg.parentElement.remove();
+        }, 1500);
+      });
+    }));
+  }
+}
+
 /**main */
 export function checkedInput() {
   const checkboxes = document.querySelectorAll("input[type=checkbox]");
@@ -52,3 +68,4 @@ export function checkedInput() {
   });
 }
 checkedInput();
+checkNotificationBox();
