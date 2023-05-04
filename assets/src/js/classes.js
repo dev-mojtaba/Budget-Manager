@@ -1,5 +1,6 @@
 import { userBudget, inventoryBudget } from "./getUserBudget.js";
 import { dataList, checkNotificationBox, checkedInput } from "./deletesFunctions.js";
+import { translator } from "./translate.js";
 
 export class Budget {
     constructor(budget) {
@@ -70,7 +71,7 @@ export class HTML {
         
         // check if inputs null or undefined it's show an error otherwise it's work successfully
         if (typeText === null || priceText === null || typeText === undefined || priceText === undefined || typeText === '' || priceText === '') {
-            new HTML().printMessage("فیلد ها نمیتوانند خالی باشند")
+            new HTML().printMessage(translator().fields_empty)
         } else {
             if (priceText > 0) {
                 if (parseInt(inventoryBudget.textContent) >= parseInt(priceText)) {
@@ -95,10 +96,10 @@ export class HTML {
                 new Budget(inventoryBudget.textContent).minus(priceText);
     
                 } else {
-                    new HTML().printMessage("موجودی شما کافی نیست")
+                    new HTML().printMessage(translator().not_enough_money)
                 }
             } else {
-                new HTML().printMessage("قیمت نمیتواند کمتر از یک باشد");
+                new HTML().printMessage(translator().price_less_than_one);
             }
         }
         checkedInput();
@@ -135,6 +136,18 @@ export class HTML {
         } else {
             notifBox.firstElementChild.remove();
             checkNotificationBox();
+        }
+    }
+}
+
+export class Translate {
+    translation(translateName, translateKey, placeholder = false) {
+        let data = translateName.replace(" ", "-");
+        const element = document.querySelector(".translate-" + data);
+        if (placeholder == true) {
+            element.setAttribute('placeholder', translateKey);
+        } else {
+            element.innerText = translateKey;
         }
     }
 }
