@@ -1,7 +1,7 @@
 import { Translate } from "./classes.js";
 
 /**variables */
-export const lang = localStorage.getItem('lang');
+export const lang = localStorage.getItem('lang'), resetLang = document.querySelector(".reset-lang");
 
 /**functions */
 export function listLang() {
@@ -93,3 +93,9 @@ export function translating() {
     new Translate().translation("works done", translator().work_done);
     new Translate().translation("costs", translator().costs);
 }
+
+/**events */
+resetLang.addEventListener("click", event => {
+    localStorage.removeItem("lang");
+    location.reload();
+});
