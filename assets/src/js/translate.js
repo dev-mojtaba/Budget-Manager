@@ -4,20 +4,21 @@ import { Translate } from "./classes.js";
 export const lang = localStorage.getItem('lang');
 
 /**functions */
-function listLang() {
+export function listLang() {
     return [
         "en",
-        "fa"
+        "fa",
+        "id"
     ]
 }
 
 export function translator() {
     if (lang == listLang()[0]) {
         return {
-            costs: "Costs:",
+            costs: "Costs",
             direction: "ltr",
             fields_empty: "Fields cannot be empty",
-            fill_specs: "Fill in the required information",
+            fill_specs: "Fill the required information",
             get_budget: "Please enter your budget:",
             input_name: "eg: coffee shop, restaurant and...",
             input_price: "Enter the price",
@@ -29,18 +30,18 @@ export function translator() {
             price: "Price:",
             price_less_than_one: "Price cannot be less than one",
             submit: "Submit",
-            title: "Budget Manager",
+            title: "Budgeting Management",
             work_done: "The works done"
         }
     }
     if (lang == listLang()[1]) {
         return {
-            costs: "هزینه ها:",
+            costs: "هزینه ها",
             direction: "rtl",
             fields_empty: "فیلد ها نمیتوانند خالی باشند",
             fill_specs: "مشخصات خواسته شده را پر کنید",
             get_budget: "لطفا بودجه خود را وارد نمایید:",
-            input_name: "مثلا: کافی شاپ، رستوران و...",
+            input_name: "مانند: کافی شاپ، رستوران و...",
             input_price: "قیمت را وارد کنید",
             budget: "موجودی:",
             list: "محاسبات و لیست هزینه ها",
@@ -52,6 +53,27 @@ export function translator() {
             submit: "تایید",
             title: "مدیریت بودجه بندی",
             work_done: "کار های انجام شده"
+        }
+    }
+    if (lang == listLang()[2]) {
+        return {
+            costs: "Kos",
+            direction: "ltr",
+            fields_empty: "Medan tidak boleh kosong",
+            fill_specs: "Isikan maklumat yang diperlukan",
+            get_budget: "Sila masukkan belanjawan anda:",
+            input_name: "cth: kedai kopi, restoran dan...",
+            input_price: "Masukkan harga",
+            budget: "Bajet:",
+            list: "Pengiraan dan senarai kos",
+            name: "Asma:",
+            not_enough_money: "Duit awak tak cukup",
+            operations: "Operasi:",
+            price: "Harga:",
+            price_less_than_one: "Harga tidak boleh kurang dari satu",
+            submit: "pengesahan",
+            title: "Pengurusan belanjawan",
+            work_done: "Kerja yang dilakukan"
         }
     }
 }

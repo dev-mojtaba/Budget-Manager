@@ -1,5 +1,5 @@
 import { Budget, HTML } from "./classes.js";
-import { lang, translator, translating } from "./translate.js";
+import { lang, listLang, translator, translating } from "./translate.js";
 
 /**variables */
 export let userBudget, userInventory = 0, budget, inventoryBudget = document.querySelector('.js-budget'), db_budget;
@@ -7,8 +7,8 @@ export let userBudget, userInventory = 0, budget, inventoryBudget = document.que
 /**events */
 document.addEventListener('DOMContentLoaded', event => {
     if (lang == null) {
-        let x = prompt("Please select your language: (en, fa)");
-        if (x == "en" || x == "fa") {
+        let x = prompt(`Please select your language: (${listLang().join(", ")})`);
+        if (x == listLang()[0] || x == listLang()[1] || x == listLang()[2]) {
             localStorage.setItem('lang', x);
         } else {
             localStorage.removeItem('lang');
