@@ -79,7 +79,7 @@ export class HTML {
                 // append value of parameters to textContent and add required class to elements
                 typePart.textContent = typeText;
                 // typePart.classList.add("type-part");
-                pricePart.textContent = priceText;
+                pricePart.textContent = parseInt(priceText);
                 // pricePart.classList.add("price-part");
                 
                 // we need to append childs to the div
