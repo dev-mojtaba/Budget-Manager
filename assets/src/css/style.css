@@ -147,7 +147,7 @@ body {
 }
 
 .submit {
-    width: 100px;
+    width: fit-content;
     padding: 3px 25px;
     background-color: aquamarine;
     border-radius: 10px 12px 10px 10px;
